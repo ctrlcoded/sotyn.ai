@@ -88,8 +88,8 @@ const faqSchema = [{
       <p class="hero__rotator" aria-live="polite"><span data-rotate>Won the bid. Lost the margin. Found out at month-end.</span></p>
       <p class="lead">
         From the first lead to the final rupee collected — quoting, procurement, site, labour,
-        billing and cash. {SITE.name} is the AI-powered ERP built <strong>only for EPC contractors</strong>:
-        it shows you exactly where your money leaks, and helps you plug it.
+        billing and cash. {SITE.name} is the AI-powered ERP built <strong>only for EPC contractors</strong> —
+        it shows you exactly where your money leaks and helps you plug it, for <strong>less stress and more profit</strong>.
       </p>
       <div class="btn-row">
         <a href="#demo" class="btn btn--primary btn--lg">Book a free demo</a>
@@ -111,6 +111,45 @@ const faqSchema = [{
       <h2>This is your War Room.</h2>
       <p class="lead" style="margin-inline:auto">Margin, cash, receivables and every profit leak — live, in one place. No more month-end surprises.</p>
       <img class="showcase__img" src="/images/hero-dashboard.png" alt="sotyn.ai War Room dashboard showing margin, cash, receivables and flagged profit leaks" width="1280" height="820" loading="lazy" />
+    </div>
+  </section>
+
+  <!-- ── OUTCOMES: stress-free + profit ───────────────────────────────── -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="sec-head text-center">
+        <span class="eyebrow">Why contractors switch</span>
+        <h2>Less stress. More profit. Both.</h2>
+        <p class="lead" style="margin-inline:auto">sotyn.ai isn't really about software. It's about getting two things back — your margin, and your evenings.</p>
+      </div>
+      <div class="grid grid-2 outcomes">
+        <div class="oc oc--life">
+          <div class="oc__ic"><Icon name="shield" size={24} /></div>
+          <h3>A calmer life</h3>
+          <ul class="check-list">
+            <li>Stop firefighting — problems reach you before they blow up</li>
+            <li>Delegate with confidence — the system keeps everyone accountable</li>
+            <li>No more month-end surprises or 11 PM phone calls</li>
+            <li>Go home on time. Sleep at night.</li>
+          </ul>
+        </div>
+        <div class="oc oc--money">
+          <div class="oc__ic"><Icon name="trending-up" size={24} /></div>
+          <h3>A fatter bottom line</h3>
+          <ul class="check-list">
+            <li>See your real margin before you bid</li>
+            <li>Plug the leaks in material, labour &amp; billing</li>
+            <li>Chase every rupee — cash stops getting stuck</li>
+            <li>Deliver early and win the repeat work</li>
+          </ul>
+        </div>
+      </div>
+      <div class="promises">
+        <div class="promise"><strong>2–3%</strong><span>profit leakage plugged</span></div>
+        <div class="promise"><strong>Hours</strong><span>to quote — not days</span></div>
+        <div class="promise"><strong>~2 weeks</strong><span>to go fully live</span></div>
+        <div class="promise"><strong>One screen</strong><span>your whole business</span></div>
+      </div>
     </div>
   </section>
 
@@ -660,6 +699,19 @@ const faqSchema = [{
   .cert2 :global(.ico) { color: var(--brand-600); }
 
   @media (max-width: 760px) { .nums { grid-template-columns: repeat(2, 1fr); } }
+
+  /* Outcomes: stress-free + profit */
+  .outcomes { max-width: 940px; margin-inline: auto; }
+  .oc { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; box-shadow: var(--shadow-sm); }
+  .oc--money { border-top: 4px solid var(--brand-600); }
+  .oc--life { border-top: 4px solid var(--graphite-700); }
+  .oc__ic { width: 50px; height: 50px; border-radius: 13px; background: var(--brand-50); color: var(--brand-700); display: grid; place-items: center; margin-bottom: 16px; }
+  .oc h3 { font-size: 1.3rem; margin-bottom: 16px; }
+  .promises { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 940px; margin: 24px auto 0; }
+  .promise { text-align: center; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 20px 12px; box-shadow: var(--shadow-sm); }
+  .promise strong { display: block; font-size: 1.6rem; font-weight: 900; color: var(--brand-700); letter-spacing: -.02em; }
+  .promise span { font-size: .85rem; color: var(--muted); }
+  @media (max-width: 760px) { .promises { grid-template-columns: 1fr 1fr; } }
 
   /* Before / after */
   .ba-img { width: 100%; max-width: 1000px; height: auto; margin: 34px auto 0; border-radius: 16px; box-shadow: var(--shadow-lg); }
