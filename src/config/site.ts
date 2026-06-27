@@ -51,6 +51,17 @@ export const SITE = {
   // ── Marketing / ad tracking ──────────────────────────────────────────────
   metaPixelId: "", // ⚠️ paste your Facebook/Meta Pixel ID to track ad → webinar → buy
 
+  // Founding-price countdown. mode "monthly" rolls to the end of the current
+  // month and auto-resets (never shows expired). Set mode "fixed" + a `deadline`
+  // ISO string (e.g. "2026-07-31T23:59:59+05:30") for a hard one-time deadline.
+  countdown: {
+    enabled: true,
+    mode: "monthly",
+    deadline: "",
+    label: "Founding price closes in",
+    sublabel: "After that the price goes up — and founding seats are gone.",
+  },
+
   // ── PRICING ──────────────────────────────────────────────────────────────
   // Strategy: low price, high RESPECT. Anchor it, guarantee it, make it scarce.
   // ⚠️ Adjust the numbers to your market — everything reads from here.

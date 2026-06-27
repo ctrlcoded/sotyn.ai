@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CTABand from "../components/CTABand.astro";
 import Icon from "../components/Icon.astro";
+import Countdown from "../components/Countdown.astro";
 import { SITE } from "../config/site";
 const { currency, anchor, guarantee, guaranteeNote, plans, includes, setup, roi, offer } = SITE.pricing;
 
@@ -70,6 +71,7 @@ const faqSchema = [{
           <div class="gso__pamt">{currency}10,000<span>/mo</span></div>
           <p class="gso__pnote">+ one-time setup from ₹1,000</p>
           <div class="gso__guarantee"><Icon name="shield" size={18} /> {guarantee}</div>
+          <div style="margin:18px 0"><Countdown variant="dark" /></div>
           <div class="gso__scarcity"><Icon name="alert" size={16} /> Only {offer.seatsLeft} of {offer.seatsTotal} founding seats left</div>
           <a href="/webinar" class="btn btn--primary btn--lg" style="width:100%">Claim a founding seat</a>
           <a href="/scorecard" class="btn btn--ghost" style="width:100%;margin-top:10px">Get your free leak score first</a>

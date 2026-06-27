@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import DemoForm from "../components/DemoForm.astro";
 import BookLeadMagnet from "../components/BookLeadMagnet.astro";
 import Icon from "../components/Icon.astro";
+import Countdown from "../components/Countdown.astro";
 import { SITE, waLink } from "../config/site";
 
 // ── The 4 money questions every contractor asks ─────────────────────────────
@@ -385,6 +386,20 @@ const faqSchema = [{
             <p>{f.a}</p>
           </details>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOUNDING URGENCY (countdown) ─────────────────────────────────── -->
+  <section class="section section--alt">
+    <div class="container container--narrow text-center">
+      <span class="eyebrow">Founding offer</span>
+      <h2>Lock ₹10,000/mo — for life.</h2>
+      <p class="lead" style="margin-inline:auto">The first 100 EPC contractors lock the founding price forever. When the timer hits zero, the price goes up.</p>
+      <div style="margin:26px 0 22px"><Countdown variant="light" /></div>
+      <div class="btn-row" style="justify-content:center">
+        <a href="/pricing" class="btn btn--primary btn--lg">See the founding offer</a>
+        <a href="/scorecard" class="btn btn--ghost btn--lg">Get your free leak score</a>
       </div>
     </div>
   </section>
