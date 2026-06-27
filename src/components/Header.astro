@@ -1,6 +1,9 @@
 ---
 import { SITE } from "../config/site";
 ---
+<a class="announce" href="/webinar">
+  <strong>Free live masterclass</strong> for contractors — stop losing money on every project. <u>Reserve your seat →</u>
+</a>
 <header class="hdr">
   <div class="container hdr__in">
     <a href="/" class="hdr__brand" aria-label={`${SITE.name} home`}>
@@ -12,7 +15,7 @@ import { SITE } from "../config/site";
       <a href="/features">Features</a>
       <a href="/pricing">Pricing</a>
       <a href="/about">About</a>
-      <a href="/#leaks">Why it pays</a>
+      <a href="/webinar" class="hdr__hot">Free Webinar</a>
     </nav>
 
     <div class="hdr__cta">
@@ -28,13 +31,17 @@ import { SITE } from "../config/site";
     <a href="/features">Features</a>
     <a href="/pricing">Pricing</a>
     <a href="/about">About</a>
-    <a href="/#leaks">Why it pays</a>
+    <a href="/webinar" class="hdr__hot">Free Webinar</a>
     <a href={SITE.appUrl} rel="nofollow">Login</a>
     <a href="/#demo" class="btn btn--primary">Book a demo</a>
   </div>
 </header>
 
 <style>
+  .announce { display: block; text-align: center; background: var(--brand-700); color: #fff; font-size: .88rem; padding: 9px 16px; text-decoration: none; }
+  .announce:hover { background: var(--brand-800); text-decoration: none; }
+  .announce u { text-underline-offset: 2px; }
+  .hdr__nav a.hdr__hot, .hdr__mobile a.hdr__hot { color: var(--brand-700); font-weight: 700; }
   .hdr {
     position: sticky; top: 0; z-index: 50;
     background: rgba(255, 255, 255, .82); backdrop-filter: saturate(180%) blur(16px);

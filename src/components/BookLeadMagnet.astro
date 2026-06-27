@@ -94,6 +94,7 @@ const { source = "book-checklist" } = Astro.props;
     btn.disabled = true;
     statusEl.dataset.state = "";
     statusEl.textContent = "Preparing your download…";
+    if (window.fbq) window.fbq("track", "Lead");
 
     // 1) Record the lead via the same ERP/CRM webhook the demo form uses
     let delivered = false;

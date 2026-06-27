@@ -49,6 +49,14 @@ const appSchema = {
 };
 
 const allSchema = [appSchema, ...schema];
+
+// Meta (Facebook) Pixel — built here as a plain string, injected via set:html.
+const fbPixel = SITE.metaPixelId
+  ? `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${SITE.metaPixelId}');fbq('track','PageView');`
+  : "";
+const fbNoscript = SITE.metaPixelId
+  ? `<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=${SITE.metaPixelId}&ev=PageView&noscript=1"/>`
+  : "";
 ---
 <!doctype html>
 <html lang="en-IN">
@@ -92,6 +100,10 @@ const allSchema = [appSchema, ...schema];
     {allSchema.map((s) => (
       <script type="application/ld+json" set:html={JSON.stringify(s)} />
     ))}
+
+    <!-- Meta (Facebook) Pixel — for ad → webinar → buy tracking. Set SITE.metaPixelId. -->
+    {fbPixel && <script is:inline set:html={fbPixel} />}
+    {fbNoscript && <noscript set:html={fbNoscript} />}
   </head>
   <body>
     <a href="#main" class="sr-only">Skip to content</a>

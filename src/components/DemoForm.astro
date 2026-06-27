@@ -84,6 +84,7 @@ import { SITE } from "../config/site";
     btn.disabled = true;
     status.dataset.state = "";
     status.textContent = "Sending…";
+    if (window.fbq) window.fbq("track", "Lead");
 
     const payload = {
       ...data,

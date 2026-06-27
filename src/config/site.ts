@@ -3,11 +3,8 @@
  *  SOTYNERP — SINGLE SOURCE OF TRUTH
  * ────────────────────────────────────────────────────────────────────────────
  *  The ERP that runs Secured Engineers Pvt. Ltd., now offered to contractors
- *  across India. Edit this one file for contact details, links, stats and
- *  lead routing. Anything marked  ⚠️ REPLACE  still needs a real value.
- *
- *  These values power the call/WhatsApp buttons, the demo form, SEO tags,
- *  Google structured data, the sitemap and the footer.
+ *  across India. Edit this one file for contact details, links, stats, pricing,
+ *  the webinar funnel and lead routing. Anything marked ⚠️ REPLACE needs a value.
  * ────────────────────────────────────────────────────────────────────────────
  */
 
@@ -19,24 +16,21 @@ export const SITE = {
   tagline: "The ERP built by contractors, for contractors",
   promise:
     "See exactly where your money is leaking — from quote to site to collection — and plug it.",
-  // The company behind the product (your real EPC business = the proof).
   parentCompany: "Secured Engineers Pvt. Ltd.",
 
   // ── Domain / URL ─────────────────────────────────────────────────────────
-  // You own sotyn.ai — point it here when this site goes live.
   url: "https://sotyn.ai",
-  // Where existing customers log in (the live ERP).
   appUrl: "https://securederp.in",
 
-  // ── Contact (reuses your real numbers so the demo form works on day one) ──
+  // ── Contact ──────────────────────────────────────────────────────────────
   phone: "+91 70099 87817",
   phoneHref: "+917009987817",
-  whatsapp: "917009987817", // country code + number, NO + or spaces
+  whatsapp: "917009987817",
   email: "sales@sotyn.ai", // ⚠️ REPLACE if you set up a dedicated inbox
   emailDisplay: "sales@sotyn.ai", // ⚠️ REPLACE
-  emailFallback: "sales@securedengineers.com", // working inbox used until sotyn.ai email is live
+  emailFallback: "sales@securedengineers.com",
 
-  // ── Head office (same as Secured Engineers) ──────────────────────────────
+  // ── Head office ──────────────────────────────────────────────────────────
   address: {
     street: "2480/1, BK Tower, Gill Road",
     city: "Ludhiana",
@@ -46,8 +40,7 @@ export const SITE = {
     countryName: "India",
   },
 
-  // ── Proof points — these are REAL numbers from the company that built it ──
-  // The strongest sales asset SotynERP has: it runs a live EPC business.
+  // ── Proof points (real numbers from the company that built it) ───────────
   stats: [
     { value: "535+", label: "Projects run on it" },
     { value: "18+", label: "Indian states" },
@@ -55,107 +48,106 @@ export const SITE = {
     { value: "₹11.7 Cr+", label: "Client savings tracked" },
   ],
 
-  // ── Pricing ──────────────────────────────────────────────────────────────
-  // ⚠️ REPLACE the numbers below with your real prices. They're indicative
-  //    placeholders so the page looks complete. `price` shows big on the card.
-  // Calibrated for Indian contractors with ₹10–100 Cr turnover.
-  // ⚠️ These are recommended starting prices — adjust to your costs/market.
-  // Field/site app users are unlimited & free; you only charge for core users.
+  // ── Marketing / ad tracking ──────────────────────────────────────────────
+  metaPixelId: "", // ⚠️ paste your Facebook/Meta Pixel ID to track ad → webinar → buy
+
+  // ── PRICING ──────────────────────────────────────────────────────────────
+  // Strategy: low price, high RESPECT. Anchor it, guarantee it, make it scarce.
+  // ⚠️ Adjust the numbers to your market — everything reads from here.
   pricing: {
     currency: "₹",
-    billingNote: "per month, billed annually",
-    gstNote:
-      "Prices exclude 18% GST. Field/site app users are unlimited & free — you only pay for core (office & management) users.",
-    disclaimer:
-      "Calibrated for contractors with ₹10–100 Cr turnover. Your final quote depends on team size and the modules you switch on — book a demo for an exact number. Start on the plan that fits and add modules as you grow.",
-    tiers: [
+    anchor:
+      "Comparable construction ERPs cost ₹3–10 lakh a year. SotynERP is a fraction of that — because we built it to run our own business, not to milk customers.",
+    guarantee: "30-day money-back guarantee",
+    guaranteeNote:
+      "Use it for 30 days. If it doesn't show you where you're leaking money, we refund every rupee — no questions asked.",
+    plans: [
       {
-        name: "Growth",
-        blurb: "Stop the obvious leaks — quote, procure, bill.",
-        turnover: "₹10–30 Cr turnover",
-        coreUsers: "Up to 40 core users",
-        fieldUsers: "Unlimited field users",
-        price: "35,000",
-        from: false,
-        annual: "₹4.2 L / year",
-        perUser: "≈ ₹875 / core user / mo",
-        onboarding: "₹75,000 one-time onboarding",
-        highlight: false,
-        features: [
-          "CRM, Leads & Quotation + Estimator",
-          "Projects, Daily Reports, Snags & Checklists",
-          "Procurement (RFQ, Vendors) & Inventory",
-          "Sales Billing & Invoices",
-          "Attendance + Tally link",
-          "Core dashboards · mobile app",
-          "WhatsApp + email support",
-        ],
-        cta: "Book a demo",
+        name: "Founding Member",
+        badge: "Limited · price locked for life",
+        blurb: "The lowest price SotynERP will ever offer.",
+        price: "4,999",
+        per: "/mo",
+        billed: "billed annually · ₹59,988/yr",
+        strike: "",
+        note: "First 100 contractors only · rate locked forever",
+        highlight: true,
+        cta: "Claim founding price",
+        features: ["Everything included (full list below)", "Price never increases — for life", "Priority onboarding"],
       },
       {
-        name: "Scale",
-        blurb: "Control the money and the labour.",
-        turnover: "₹30–75 Cr turnover",
-        coreUsers: "Up to 100 core users",
-        fieldUsers: "Unlimited field users",
-        price: "75,000",
-        from: false,
-        annual: "₹9 L / year",
-        perUser: "≈ ₹750 / core user / mo",
-        onboarding: "₹2 L one-time onboarding",
-        highlight: true,
-        badge: "Most popular",
-        features: [
-          "Everything in Growth, plus:",
-          "Full Finance: AR/AP, Collections, Cash Flow",
-          "Sub-contractor billing + Labour Rate",
-          "Payroll",
-          "Schedule (Gantt), PMS Tasks, Rentals, Assets",
-          "Scorecard, Roles & Permissions, Audit Log",
-          "Priority support",
-        ],
+        name: "Standard",
+        blurb: "Everything included, no limits.",
+        price: "6,999",
+        per: "/mo",
+        billed: "billed annually · ₹83,988/yr",
+        strike: "9,999",
+        note: "Or ₹9,999/mo billed monthly",
+        highlight: false,
         cta: "Book a demo",
+        features: ["Everything in the list below", "Annual or monthly billing", "Standard onboarding"],
       },
       {
         name: "Enterprise",
-        blurb: "Scale across divisions, sites & companies.",
-        turnover: "₹75–100 Cr+ turnover",
-        coreUsers: "100+ / unlimited core users",
-        fieldUsers: "Unlimited field users",
-        price: "1,50,000",
-        from: true,
-        annual: "from ₹18 L / year",
-        perUser: "Volume pricing",
-        onboarding: "from ₹4 L onboarding",
+        blurb: "₹50 Cr+ turnover or multi-company groups.",
+        price: "Custom",
+        per: "",
+        billed: "Tailored to your group",
+        strike: "",
+        note: "Multi-company · API · dedicated manager · SLA",
         highlight: false,
-        features: [
-          "Everything in Scale, plus:",
-          "Full Solar Division",
-          "AI Auto-Quotation",
-          "War Room & Operating Console",
-          "Multi-location & multi-company",
-          "API + custom integrations",
-          "Dedicated manager · SLA · on-site training",
-        ],
         cta: "Talk to us",
+        features: ["Everything, plus:", "Multi-company & multi-location", "API + custom integrations", "Dedicated manager + SLA"],
       },
     ],
-    // Drives the ROI / leakage calculator — keep in sync with the tiers above.
+    // What's in EVERY plan — the "everything included" promise.
+    includes: [
+      "Every module — CRM, quotation, procurement, site, finance, HR & solar",
+      "Unlimited users — office and site, no per-seat fees ever",
+      "Free setup, Tally + Excel migration & team training",
+      "Mobile app for every site worker, in plain language",
+      "Your own secure workspace, hosted in India",
+      "WhatsApp + priority support",
+      "No lock-in — cancel anytime",
+    ],
+    // Drives the ROI / leakage calculator.
     roi: {
-      defaultTurnover: 50, // ₹ Cr
+      defaultTurnover: 25, // ₹ Cr
       defaultLeakPct: 2.5,
-      bands: [
-        { maxCr: 30, plan: "Growth", annual: 420000 },
-        { maxCr: 75, plan: "Scale", annual: 900000 },
-        { maxCr: 100000, plan: "Enterprise", annual: 1800000 },
-      ],
+      annualCost: 59988, // founding annual price, used for payback math
     },
   },
 
+  // ── WEBINAR FUNNEL ───────────────────────────────────────────────────────
+  // The Facebook/Instagram ad sends traffic to /webinar. ⚠️ set your real
+  // date/time and (optionally) the live link.
+  webinar: {
+    kicker: "Free live masterclass for contractors",
+    title: "The Contractor's Profit Masterclass",
+    subtitle:
+      "How to stop losing money on every project — and build a contracting business that runs without you.",
+    host: "Er. Ankur Kaplesh",
+    hostTitle:
+      "Business Coach & Founder, SotynERP · 14 yrs · 535+ projects · Author of 2 books",
+    when: "Every Saturday · 7:00 PM IST", // ⚠️ set your real schedule
+    duration: "60 minutes + live Q&A",
+    platform: "Live on Zoom · 100% free",
+    seats: "Only 100 seats per session",
+    forWho:
+      "Contracting & EPC business owners (₹2–100 Cr) — MEPF, solar, civil & interiors.",
+    learn: [
+      "The 6 places every contractor silently leaks money — and how to plug each one",
+      "The 4 numbers you must see every week to protect your margin",
+      "How to delegate site & money decisions so the business grows without you",
+      "The exact system we use to run 535+ projects across 18 states",
+      "A founding-member offer to install the same system in your business",
+    ],
+  },
+
   // ── LEAD ROUTING ─────────────────────────────────────────────────────────
-  // The demo form POSTs lead data as JSON to this endpoint (your CRM/ERP
-  // webhook). While empty, it falls back to WhatsApp + email so no lead is
-  // ever lost.
+  // Demo, checklist and webinar forms POST JSON here. While empty, they fall
+  // back to WhatsApp + email so no lead is ever lost. Each payload carries a
+  // `source` so you can tell demo vs checklist vs webinar leads apart.
   leadWebhookUrl: "", // ⚠️ PLUG your ERP/CRM lead webhook URL HERE when ready
 
   // ── Social ───────────────────────────────────────────────────────────────

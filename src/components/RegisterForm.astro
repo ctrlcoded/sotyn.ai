@@ -1,0 +1,102 @@
+---
+import { SITE } from "../config/site";
+import Icon from "./Icon.astro";
+const { source = "webinar-registration" } = Astro.props;
+---
+<form class="rf" id="regForm" data-source={source} novalidate>
+  <div class="rf__row">
+    <label>Your name<input type="text" name="name" required autocomplete="name" placeholder="Full name" /></label>
+    <label>Phone / WhatsApp<input type="tel" name="phone" required inputmode="tel" autocomplete="tel" placeholder="10-digit mobile" /></label>
+  </div>
+  <label>Company / firm<input type="text" name="company" placeholder="Your contracting firm" /></label>
+  <label>Annual turnover
+    <select name="turnover">
+      <option value="">Select…</option>
+      <option>Under ₹2 Cr</option>
+      <option>₹2–10 Cr</option>
+      <option>₹10–50 Cr</option>
+      <option>₹50–100 Cr</option>
+      <option>₹100 Cr+</option>
+    </select>
+  </label>
+  <input type="text" name="website_hp" tabindex="-1" autocomplete="off" class="rf__hp" aria-hidden="true" />
+  <button type="submit" class="btn btn--primary btn--lg rf__submit">Reserve my free seat</button>
+  <p class="rf__status" id="rfStatus" role="status" aria-live="polite"></p>
+  <p class="rf__note"><Icon name="lock" size={14} /> Free. We’ll WhatsApp you the joining link &amp; a reminder.</p>
+
+  <div class="rf__done" id="rfDone" hidden>
+    <div class="rf__check" aria-hidden="true"><Icon name="check" size={30} /></div>
+    <h3>Your seat is reserved 🎟️</h3>
+    <p class="muted">We’ll WhatsApp you the joining link and a reminder before it starts. See you there!</p>
+  </div>
+</form>
+
+<style>
+  .rf { display: grid; gap: 14px; }
+  .rf__row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .rf label { display: grid; gap: 6px; font-weight: 600; font-size: .88rem; color: var(--ink); }
+  .rf input, .rf select { font-family: inherit; font-size: 1rem; padding: 12px 13px; border: 1.5px solid var(--line); border-radius: 10px; background: #fff; color: var(--ink); width: 100%; transition: .15s; }
+  .rf input::placeholder { color: #9ca3af; }
+  .rf input:focus, .rf select:focus { border-color: var(--brand-500); outline: none; box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
+  .rf__hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+  .rf__submit { width: 100%; margin-top: 4px; }
+  .rf__submit[disabled] { opacity: .6; cursor: progress; }
+  .rf__status { margin: 0; font-weight: 600; font-size: .92rem; min-height: 1.1em; }
+  .rf__status[data-state="ok"] { color: var(--brand-700); }
+  .rf__status[data-state="err"] { color: var(--graphite-800); }
+  .rf__note { display: flex; align-items: center; gap: 7px; margin: 0; font-size: .8rem; color: var(--muted); }
+  .rf__note :global(.ico) { flex: none; }
+  .rf__done { text-align: center; padding: 6px 4px; }
+  .rf__check { width: 60px; height: 60px; border-radius: 50%; background: var(--brand-50); color: var(--brand-600); display: grid; place-items: center; margin: 0 auto 10px; }
+  .rf__done h3 { margin: 6px 0 4px; }
+  @media (max-width: 560px) { .rf__row { grid-template-columns: 1fr; } }
+</style>
+
+<script is:inline define:vars={{ WEBHOOK: SITE.leadWebhookUrl, WA: SITE.whatsapp }}>
+  const form = document.getElementById("regForm");
+  const statusEl = document.getElementById("rfStatus");
+  const done = document.getElementById("rfDone");
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (form.website_hp.value) return; // bot
+    const data = Object.fromEntries(new FormData(form).entries());
+    delete data.website_hp;
+    if (!data.name || !data.phone) {
+      statusEl.dataset.state = "err";
+      statusEl.textContent = "Please add your name and phone.";
+      return;
+    }
+    data.source = form.dataset.source || "webinar-registration";
+    data.event = "Contractor's Profit Masterclass";
+    data.page = location.pathname;
+    data.submittedAt = new Date().toISOString();
+
+    const btn = form.querySelector("button[type=submit]");
+    btn.disabled = true;
+    statusEl.dataset.state = "";
+    statusEl.textContent = "Reserving your seat…";
+
+    let delivered = false;
+    if (WEBHOOK) {
+      try {
+        const r = await fetch(WEBHOOK, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
+        delivered = r.ok;
+      } catch (_) { delivered = false; }
+    }
+
+    // Fire Meta Pixel conversion events for ad optimisation (no-op if pixel absent)
+    if (window.fbq) { window.fbq("track", "CompleteRegistration"); window.fbq("track", "Lead"); }
+
+    // Show success, then hand to WhatsApp if the webhook didn't capture it
+    form.querySelectorAll(".rf__row, label, .rf__submit, .rf__note, .rf__status").forEach((el) => el.setAttribute("hidden", ""));
+    done.hidden = false;
+
+    if (!delivered) {
+      const msg = `Webinar registration%0AName: ${data.name}%0APhone: ${data.phone}%0A` +
+        (data.company ? `Company: ${data.company}%0A` : "") + (data.turnover ? `Turnover: ${data.turnover}%0A` : "") +
+        `Event: Contractor's Profit Masterclass`;
+      setTimeout(() => window.open(`https://wa.me/${WA}?text=${msg}`, "_blank"), 400);
+    }
+  });
+</script>
