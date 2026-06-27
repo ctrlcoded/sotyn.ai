@@ -48,6 +48,29 @@ export const SITE = {
     { value: "₹11.7 Cr+", label: "Client savings tracked" },
   ],
 
+  // ── Trust & capability (homepage proof). All real numbers — edit freely. ──
+  trust: {
+    numbers: [
+      { value: "535+", label: "Projects run on it" },
+      { value: "14+", label: "Years in business" },
+      { value: "18+", label: "Indian states" },
+      { value: "300+", label: "Users every day" },
+      { value: "₹11.7 Cr+", label: "Client savings tracked" },
+      { value: "89.77%", label: "Repeat clients" },
+      { value: "93.32%", label: "Projects delivered early" },
+      { value: "1,13,880+", label: "Safe man-hours · 0 incidents" },
+    ],
+    capabilities: [
+      { icon: "layers", t: "Every department, one login", d: "60+ modules across sales, finance, procurement, site, HR & solar — all talking to each other." },
+      { icon: "bolt", t: "AI that works for you", d: "AI auto-quotation, leak alerts and a daily briefing — not just data entry." },
+      { icon: "shield", t: "Your data, hosted in India", d: "Your own secure workspace with daily backups. Never sold, never shared." },
+      { icon: "gauge", t: "Bank-grade control", d: "Role-based access and a full audit log on every single change." },
+      { icon: "wallet", t: "Works with Tally & Excel", d: "We migrate your data and keep your accountant's books in sync." },
+      { icon: "users", t: "Built for the field", d: "A mobile app every site worker actually uses — in plain language." },
+    ],
+    certs: ["ISO 9001:2015 certified", "MSME registered", "14 years in business", "GST-registered company"],
+  },
+
   // ── Marketing / ad tracking ──────────────────────────────────────────────
   metaPixelId: "", // ⚠️ paste your Facebook/Meta Pixel ID to track ad → webinar → buy
 
