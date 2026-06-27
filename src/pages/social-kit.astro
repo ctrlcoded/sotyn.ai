@@ -1,0 +1,81 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const motiv = [
+  { f: "motiv-01", c: "Your site makes money. Your office loses it." },
+  { f: "motiv-02", c: "You can't fix a leak you can't see." },
+  { f: "motiv-03", c: "The job was profitable. The business wasn't." },
+  { f: "motiv-04", c: "Stop being the bottleneck." },
+  { f: "motiv-05", c: "Won the bid. Lost the margin. Never again." },
+  { f: "motiv-06", c: "Cheap quotes win jobs. Clear numbers win businesses." },
+  { f: "motiv-07", c: "Grow the business — not the chaos." },
+  { f: "motiv-08", c: "If everything needs your approval, nothing scales." },
+  { f: "motiv-09", c: "Profit is saved in small leaks." },
+  { f: "motiv-10", c: "Run the business. Don't let it run you." },
+];
+const lead = [
+  { f: "lead-01", c: "Profit Leak Scorecard (free)" },
+  { f: "lead-02", c: "Free EPC calculators" },
+  { f: "lead-03", c: "11-Point Checklist (free)" },
+  { f: "lead-04", c: "Free masterclass / webinar" },
+  { f: "lead-05", c: "Founding offer — ₹10,000/mo" },
+  { f: "lead-06", c: "You could be leaking ₹62 lakh/yr" },
+  { f: "lead-07", c: "₹6,00,000+ value for ₹10,000/mo" },
+  { f: "lead-08", c: "30-day money-back guarantee" },
+  { f: "lead-09", c: "6 places money leaks" },
+  { f: "lead-10", c: "Book a free demo" },
+];
+---
+<BaseLayout
+  title="Social media kit — sotyn.ai"
+  description="Downloadable on-brand images for sotyn.ai social posts and ads."
+  noindex={true}
+>
+  <section class="section" style="padding-bottom:18px">
+    <div class="container container--narrow text-center">
+      <span class="eyebrow">Internal · social media kit</span>
+      <h1>sotyn.ai image kit</h1>
+      <p class="lead" style="margin-inline:auto">20 ready-to-post images (1080×1080), all on-brand. Right-click → Save, or hit Download. Post these on Instagram, Facebook, LinkedIn and WhatsApp status — pair lead-gen images with a link to the relevant page.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:10px">
+    <div class="container">
+      <h2 style="margin-bottom:22px">Motivational (10)</h2>
+      <div class="kit">
+        {motiv.map((m) => (
+          <figure class="kit__item">
+            <img src={`/images/social/${m.f}.png`} alt={m.c} width="1080" height="1080" loading="lazy" />
+            <figcaption>{m.c}</figcaption>
+            <a class="btn btn--ghost" href={`/images/social/${m.f}.png`} download>Download</a>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2 style="margin-bottom:22px">Lead generation (10)</h2>
+      <div class="kit">
+        {lead.map((l) => (
+          <figure class="kit__item">
+            <img src={`/images/social/${l.f}.png`} alt={l.c} width="1080" height="1080" loading="lazy" />
+            <figcaption>{l.c}</figcaption>
+            <a class="btn btn--ghost" href={`/images/social/${l.f}.png`} download>Download</a>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .kit { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .kit__item { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 12px; }
+  .kit__item img { width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); }
+  .kit__item figcaption { font-size: .9rem; color: var(--muted); font-weight: 600; flex: 1; }
+  .kit__item .btn { width: 100%; padding: 9px; font-size: .9rem; }
+  @media (max-width: 860px) { .kit { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 540px) { .kit { grid-template-columns: 1fr; } }
+</style>
