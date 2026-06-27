@@ -1,0 +1,157 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import RegisterForm from "../components/RegisterForm.astro";
+import Icon from "../components/Icon.astro";
+
+const questions = [
+  { id: "q1", q: "Do you see true margin on a quote before you send it?", max: 0.8, fix: "AI Auto-Quotation + Price Breakup Master" },
+  { id: "q2", q: "Do you compare vendor rates before every major purchase?", max: 0.6, fix: "RFQ Queue + Vendor Master" },
+  { id: "q3", q: "Is site attendance captured digitally — not on paper musters?", max: 0.5, fix: "Attendance" },
+  { id: "q4", q: "Are sub-contractor bills checked against agreed rates?", max: 0.5, fix: "Sub-contractor Master + Labour Rate" },
+  { id: "q5", q: "Do you get daily site progress (DPR) on one screen?", max: 0.4, fix: "Daily Reports + Snags" },
+  { id: "q6", q: "Do you know your exact receivables & retention today?", max: 0.4, fix: "AR/AP Tracker + Collections" },
+  { id: "q7", q: "Is everything from quote to bill in ONE connected system?", max: 0.3, fix: "sotyn.ai — all modules, one system" },
+];
+---
+<BaseLayout
+  title="EPC Profit Leak Scorecard — find where your money goes in 2 minutes | sotyn.ai"
+  description="Answer 7 quick questions and get your EPC Profit Leak Score — an estimate of how much your contracting business is leaking every year, and exactly where. Free, 2 minutes."
+  path="/scorecard"
+>
+  <section class="section" style="padding-bottom:18px">
+    <div class="container container--narrow text-center">
+      <span class="eyebrow">Free · 2 minutes · no jargon</span>
+      <h1>What's your EPC Profit Leak Score?</h1>
+      <p class="lead" style="margin-inline:auto">
+        Answer 7 quick questions about how you run projects. We'll estimate how much your business
+        is leaking every year — and exactly where — then show you how to plug it.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:10px">
+    <div class="container sc">
+      <!-- Quiz -->
+      <form class="sc__quiz" id="scForm">
+        <label class="sc__turn">Your annual turnover (₹ Cr)
+          <input type="number" id="sc_turn" value="25" min="1" />
+        </label>
+        {questions.map((item, i) => (
+          <fieldset class="sc__q">
+            <legend>{i + 1}. {item.q}</legend>
+            <div class="sc__opts" data-q={item.id}>
+              <label><input type="radio" name={item.id} value="0" /> Yes</label>
+              <label><input type="radio" name={item.id} value="0.5" checked /> Sometimes</label>
+              <label><input type="radio" name={item.id} value="1" /> No</label>
+            </div>
+          </fieldset>
+        ))}
+        <button type="submit" class="btn btn--primary btn--lg" style="width:100%">Get my leak score</button>
+      </form>
+
+      <!-- Result -->
+      <aside class="sc__result" id="scResult" aria-live="polite">
+        <div class="sc__placeholder" id="scPlaceholder">
+          <div class="sc__ic"><Icon name="gauge" size={28} /></div>
+          <p>Answer the questions and hit <strong>Get my leak score</strong> — your result appears here.</p>
+        </div>
+        <div class="sc__card" id="scCard" hidden>
+          <span class="sc__lbl">Your Profit Leak Score</span>
+          <div class="sc__score"><strong id="scScore">—</strong><span>/100</span></div>
+          <div class="sc__level" id="scLevel">—</div>
+          <div class="sc__money">
+            <span>Estimated leaking every year</span>
+            <strong id="scMoney">—</strong>
+          </div>
+          <div class="sc__gaps" id="scGaps"></div>
+          <div class="sc__form">
+            <p class="sc__formlbl">Get your full breakdown + a free 1-on-1 leak audit:</p>
+            <RegisterForm source="scorecard" />
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .sc { display: grid; grid-template-columns: 1.1fr .9fr; gap: 32px; align-items: start; }
+  .sc__quiz { display: grid; gap: 16px; }
+  .sc__turn { display: grid; gap: 6px; font-weight: 700; color: var(--ink); font-size: .95rem; background: var(--brand-50); border: 1px solid var(--brand-100); border-radius: 12px; padding: 16px 18px; }
+  .sc__turn input { font-family: inherit; font-size: 1.1rem; padding: 11px 13px; border: 1.5px solid var(--line); border-radius: 10px; width: 100%; }
+  .sc__q { border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; margin: 0; }
+  .sc__q legend { font-weight: 600; color: var(--ink); font-size: .98rem; padding: 0; }
+  .sc__opts { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+  .sc__opts label { display: inline-flex; align-items: center; gap: 7px; font-size: .92rem; font-weight: 600; color: var(--body); background: var(--bg-alt); border: 1.5px solid var(--line); border-radius: 999px; padding: 8px 16px; cursor: pointer; }
+  .sc__opts input { accent-color: var(--brand-600); }
+
+  .sc__result { position: sticky; top: 96px; }
+  .sc__placeholder { background: var(--bg-alt); border: 1px dashed var(--graphite-300); border-radius: var(--radius); padding: 40px 28px; text-align: center; color: var(--muted); }
+  .sc__placeholder .sc__ic { width: 60px; height: 60px; border-radius: 50%; background: #fff; color: var(--brand-600); display: grid; place-items: center; margin: 0 auto 14px; }
+  .sc__card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow-lg); }
+  .sc__lbl { font-size: .82rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+  .sc__score { display: flex; align-items: baseline; gap: 6px; margin: 4px 0 6px; }
+  .sc__score strong { font-size: 3.4rem; font-weight: 900; color: var(--brand-700); letter-spacing: -.03em; line-height: 1; }
+  .sc__score span { font-size: 1.1rem; color: var(--muted); font-weight: 700; }
+  .sc__level { display: inline-block; font-weight: 800; font-size: .9rem; padding: 5px 14px; border-radius: 999px; margin-bottom: 16px; }
+  .sc__level[data-lvl="Low"] { background: var(--brand-50); color: var(--brand-700); border: 1px solid var(--brand-100); }
+  .sc__level[data-lvl="Moderate"] { background: var(--graphite-100); color: var(--graphite-800); border: 1px solid var(--line); }
+  .sc__level[data-lvl="High"], .sc__level[data-lvl="Severe"] { background: var(--graphite-900); color: #fff; }
+  .sc__money { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; margin-bottom: 16px; }
+  .sc__money span { display: block; font-size: .8rem; color: var(--muted); font-weight: 600; }
+  .sc__money strong { font-size: 2rem; font-weight: 900; color: var(--ink); letter-spacing: -.02em; }
+  .sc__gaps { display: grid; gap: 8px; margin-bottom: 20px; }
+  .sc__gap { display: flex; gap: 10px; align-items: flex-start; font-size: .9rem; color: var(--body); }
+  .sc__gap :global(.ico) { color: var(--brand-600); flex: none; margin-top: 2px; }
+  .sc__gap b { color: var(--ink); }
+  .sc__formlbl { font-weight: 700; color: var(--ink); margin: 0 0 12px; font-size: .98rem; border-top: 1px solid var(--line); padding-top: 18px; }
+
+  @media (max-width: 900px) {
+    .sc { grid-template-columns: 1fr; }
+    .sc__result { position: static; }
+  }
+</style>
+
+<script is:inline define:vars={{ QUESTIONS: questions }}>
+  const $ = (id) => document.getElementById(id);
+  const inr = (n) => {
+    if (n >= 1e7) return "₹" + (n / 1e7).toFixed(2).replace(/\.?0+$/, "") + " Cr";
+    if (n >= 1e5) return "₹" + (n / 1e5).toFixed(1).replace(/\.0$/, "") + " L";
+    return "₹" + Math.round(n).toLocaleString("en-IN");
+  };
+  const maxLeak = QUESTIONS.reduce((s, q) => s + q.max, 0);
+  const form = $("scForm");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const cr = +$("sc_turn").value || 0;
+    let leakPct = 0;
+    const gaps = [];
+    QUESTIONS.forEach((q) => {
+      const sel = form.querySelector(`input[name="${q.id}"]:checked`);
+      const v = sel ? +sel.value : 0;
+      leakPct += q.max * v;
+      if (v > 0) gaps.push({ fix: q.fix, partial: v < 1 });
+    });
+    const money = cr * 1e7 * (leakPct / 100);
+    const score = Math.max(20, Math.round(100 - (leakPct / maxLeak) * 70));
+    const level = leakPct < 0.7 ? "Low" : leakPct < 1.5 ? "Moderate" : leakPct < 2.5 ? "High" : "Severe";
+
+    $("scScore").textContent = score;
+    const lvl = $("scLevel");
+    lvl.textContent = level + " leak risk";
+    lvl.dataset.lvl = level;
+    $("scMoney").textContent = inr(money);
+
+    const gapsEl = $("scGaps");
+    gapsEl.innerHTML = gaps.length
+      ? "<p style='font-weight:700;color:var(--ink);margin:0 0 4px;font-size:.9rem'>Biggest gaps to plug:</p>" +
+        gaps.map((g) => `<div class="sc__gap"><svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.6c3 3.9 5.5 6.8 5.5 9.6a5.5 5.5 0 0 1-11 0c0-2.8 2.5-5.7 5.5-9.6Z"/></svg><span>Fixed by <b>${g.fix}</b></span></div>`).join("")
+      : "<div class='sc__gap'><span>Impressive — few obvious leaks. sotyn.ai keeps it that way as you scale.</span></div>";
+
+    if (window.fbq) window.fbq("track", "Lead");
+    $("scPlaceholder").hidden = true;
+    $("scCard").hidden = false;
+    $("scCard").scrollIntoView({ behavior: "smooth", block: "nearest" });
+  });
+</script>

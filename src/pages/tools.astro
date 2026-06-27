@@ -1,0 +1,139 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CTABand from "../components/CTABand.astro";
+import Icon from "../components/Icon.astro";
+---
+<BaseLayout
+  title="Free tools for EPC contractors — margin, cash & labour calculators | sotyn.ai"
+  description="Free calculators for EPC contractors: quote margin, cash stuck in receivables, and labour leakage. No sign-up to use. Built by sotyn.ai — India's first AI ERP for EPC contractors."
+  path="/tools"
+>
+  <section class="section" style="padding-bottom:18px">
+    <div class="container container--narrow text-center">
+      <span class="eyebrow">Free tools · no sign-up</span>
+      <h1>Free calculators for EPC contractors.</h1>
+      <p class="lead" style="margin-inline:auto">
+        Quick maths on the three places EPC money hides — margin, cash and labour. Use them free.
+        When you want the full picture on your own numbers, take the 2-minute Leak Scorecard.
+      </p>
+      <div class="btn-row" style="justify-content:center;margin-top:24px">
+        <a href="/scorecard" class="btn btn--primary btn--lg">Take the Leak Scorecard</a>
+        <a href="#tools" class="btn btn--ghost btn--lg">Try the calculators</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="tools" style="padding-top:24px">
+    <div class="container tools">
+
+      <!-- Tool 1: Quote margin -->
+      <div class="tool">
+        <div class="tool__head"><span class="tool__ic"><Icon name="trending-up" size={22} /></span><h2>Quote Margin Calculator</h2></div>
+        <p class="muted">See your real selling price and margin before you send the quote.</p>
+        <div class="tool__grid">
+          <label>Your cost (₹)<input type="number" id="m_cost" value="1000000" min="0" /></label>
+          <label>Markup %<input type="number" id="m_markup" value="15" min="0" /></label>
+        </div>
+        <div class="tool__out">
+          <div><span>Selling price</span><b id="m_price">—</b></div>
+          <div><span>Margin (₹)</span><b id="m_margin">—</b></div>
+          <div><span>Margin %</span><b id="m_marginpct">—</b></div>
+        </div>
+        <p class="tool__cta">sotyn.ai shows this on <strong>every line of every quote</strong>, automatically. <a href="/#demo">See how →</a></p>
+      </div>
+
+      <!-- Tool 2: Cash stuck -->
+      <div class="tool">
+        <div class="tool__head"><span class="tool__ic"><Icon name="wallet" size={22} /></span><h2>Cash-Stuck Calculator</h2></div>
+        <p class="muted">How much of your money is locked in receivables and retention right now.</p>
+        <div class="tool__grid">
+          <label>Annual turnover (₹ Cr)<input type="number" id="c_turn" value="25" min="0" /></label>
+          <label>Avg payment delay (days)<input type="number" id="c_days" value="75" min="0" /></label>
+          <label>Retention held (%)<input type="number" id="c_ret" value="5" min="0" /></label>
+        </div>
+        <div class="tool__out">
+          <div><span>Stuck in receivables</span><b id="c_recv">—</b></div>
+          <div><span>Held as retention</span><b id="c_reten">—</b></div>
+          <div class="tool__out--hl"><span>Total cash locked</span><b id="c_total">—</b></div>
+        </div>
+        <p class="tool__cta">That's your money, financing your clients. sotyn.ai chases every rupee. <a href="/#demo">See how →</a></p>
+      </div>
+
+      <!-- Tool 3: Labour leak -->
+      <div class="tool">
+        <div class="tool__head"><span class="tool__ic"><Icon name="users" size={22} /></span><h2>Labour Leak Calculator</h2></div>
+        <p class="muted">Ghost labour and inflated sub-contractor bills add up fast.</p>
+        <div class="tool__grid">
+          <label>Monthly labour spend (₹)<input type="number" id="l_spend" value="2000000" min="0" /></label>
+          <label>Estimated leak (%)<input type="number" id="l_leak" value="6" min="0" /></label>
+        </div>
+        <div class="tool__out">
+          <div><span>Lost per month</span><b id="l_month">—</b></div>
+          <div class="tool__out--hl"><span>Lost per year</span><b id="l_year">—</b></div>
+        </div>
+        <p class="tool__cta">Verified attendance + rate-checked sub-con bills plug this. <a href="/#demo">See how →</a></p>
+      </div>
+
+    </div>
+  </section>
+
+  <CTABand
+    title="Want this on your actual numbers?"
+    text="The 2-minute Leak Scorecard estimates exactly where — and how much — your EPC business is leaking, and emails you the full breakdown."
+  />
+</BaseLayout>
+
+<style>
+  .tools { display: grid; gap: 22px; max-width: 820px; margin-inline: auto; }
+  .tool { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow-sm); }
+  .tool__head { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+  .tool__ic { width: 44px; height: 44px; border-radius: 11px; background: var(--brand-50); color: var(--brand-700); display: grid; place-items: center; flex: none; }
+  .tool__head h2 { font-size: 1.35rem; margin: 0; }
+  .tool__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin: 18px 0; }
+  .tool label { display: grid; gap: 6px; font-weight: 600; font-size: .85rem; color: var(--ink); }
+  .tool input { font-family: inherit; font-size: 1rem; padding: 11px 13px; border: 1.5px solid var(--line); border-radius: 10px; background: #fff; color: var(--ink); width: 100%; }
+  .tool input:focus { border-color: var(--brand-500); outline: none; box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
+  .tool__out { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; background: var(--bg-alt); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+  .tool__out > div { display: flex; flex-direction: column; gap: 2px; }
+  .tool__out span { font-size: .78rem; color: var(--muted); font-weight: 600; }
+  .tool__out b { font-size: 1.4rem; font-weight: 900; color: var(--ink); letter-spacing: -.02em; }
+  .tool__out--hl b { color: var(--brand-700); }
+  .tool__cta { margin: 16px 0 0; font-size: .95rem; color: var(--body); }
+  .tool__cta a { font-weight: 700; }
+</style>
+
+<script is:inline>
+  const $ = (id) => document.getElementById(id);
+  const inr = (n) => {
+    if (!isFinite(n)) n = 0;
+    if (n >= 1e7) return "₹" + (n / 1e7).toFixed(2).replace(/\.?0+$/, "") + " Cr";
+    if (n >= 1e5) return "₹" + (n / 1e5).toFixed(2).replace(/\.?0+$/, "") + " L";
+    return "₹" + Math.round(n).toLocaleString("en-IN");
+  };
+  function margin() {
+    const cost = +$("m_cost").value || 0, mk = +$("m_markup").value || 0;
+    const price = cost * (1 + mk / 100), m = price - cost;
+    $("m_price").textContent = inr(price);
+    $("m_margin").textContent = inr(m);
+    $("m_marginpct").textContent = price ? ((m / price) * 100).toFixed(1) + "%" : "—";
+  }
+  function cash() {
+    const cr = +$("c_turn").value || 0, days = +$("c_days").value || 0, ret = +$("c_ret").value || 0;
+    const annual = cr * 1e7;
+    const recv = (annual / 365) * days;
+    const reten = annual * (ret / 100);
+    $("c_recv").textContent = inr(recv);
+    $("c_reten").textContent = inr(reten);
+    $("c_total").textContent = inr(recv + reten);
+  }
+  function labour() {
+    const spend = +$("l_spend").value || 0, leak = +$("l_leak").value || 0;
+    const m = spend * (leak / 100);
+    $("l_month").textContent = inr(m);
+    $("l_year").textContent = inr(m * 12);
+  }
+  ["m_cost", "m_markup"].forEach((id) => $(id).addEventListener("input", margin));
+  ["c_turn", "c_days", "c_ret"].forEach((id) => $(id).addEventListener("input", cash));
+  ["l_spend", "l_leak"].forEach((id) => $(id).addEventListener("input", labour));
+  margin(); cash(); labour();
+</script>

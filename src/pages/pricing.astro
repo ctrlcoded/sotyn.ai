@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import CTABand from "../components/CTABand.astro";
 import Icon from "../components/Icon.astro";
 import { SITE } from "../config/site";
-const { currency, anchor, guarantee, guaranteeNote, plans, includes, setup, roi } = SITE.pricing;
+const { currency, anchor, guarantee, guaranteeNote, plans, includes, setup, roi, offer } = SITE.pricing;
 
 const faqs = [
   { q: "Why is it so much cheaper than other construction ERPs?", a: "Because we didn't build it to sell — we built it to run our own EPC business, and it already pays for itself there. Offering it to other contractors is a bonus, so we price it to be a no-brainer, not to maximise our margin." },
@@ -43,6 +43,37 @@ const faqSchema = [{
       <div class="anchor">
         <div class="anchor__item"><Icon name="shield" size={22} /><p>{anchor}</p></div>
         <div class="anchor__item"><Icon name="check" size={22} /><p><strong>{guarantee}.</strong> {guaranteeNote}</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRAND-SLAM OFFER (value stack) -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="sec-head text-center">
+        <span class="eyebrow">The offer</span>
+        <h2>Add it all up — then look at the price.</h2>
+        <p class="lead" style="margin-inline:auto">Everything an EPC contractor needs, stacked into one offer with the risk removed. This is why saying no is the expensive option.</p>
+      </div>
+      <div class="gso">
+        <ul class="gso__list">
+          {offer.stack.map((s) => (
+            <li><span class="gso__item"><Icon name="check" size={18} /> {s.item}</span><span class="gso__val">{s.value}</span></li>
+          ))}
+          {offer.bonuses.map((b) => (
+            <li class="gso__bonus"><span class="gso__item"><Icon name="bolt" size={18} /> {b.item}</span><span class="gso__val">{b.value}</span></li>
+          ))}
+          <li class="gso__total"><span>Total value</span><span>{offer.totalValue}</span></li>
+        </ul>
+        <aside class="gso__price">
+          <span class="gso__plbl">Your founding price</span>
+          <div class="gso__pamt">{currency}10,000<span>/mo</span></div>
+          <p class="gso__pnote">+ one-time setup from ₹1,000</p>
+          <div class="gso__guarantee"><Icon name="shield" size={18} /> {guarantee}</div>
+          <div class="gso__scarcity"><Icon name="alert" size={16} /> Only {offer.seatsLeft} of {offer.seatsTotal} founding seats left</div>
+          <a href="/webinar" class="btn btn--primary btn--lg" style="width:100%">Claim a founding seat</a>
+          <a href="/scorecard" class="btn btn--ghost" style="width:100%;margin-top:10px">Get your free leak score first</a>
+        </aside>
       </div>
     </div>
   </section>
@@ -209,6 +240,28 @@ const faqSchema = [{
   .setup__foot { text-align: center; font-size: .9rem; color: var(--muted); max-width: 640px; margin: 26px auto 0; }
   @media (max-width: 780px) { .setup { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 420px) { .setup { grid-template-columns: 1fr; } }
+
+  /* Grand-slam offer */
+  .gso { display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; align-items: start; max-width: 1000px; margin: 0 auto; }
+  .gso__list { list-style: none; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 6px 22px; box-shadow: var(--shadow-sm); }
+  .gso__list li { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .gso__list li:last-child { border-bottom: 0; }
+  .gso__item { display: flex; gap: 10px; align-items: flex-start; font-size: .95rem; color: var(--body); }
+  .gso__item :global(.ico) { color: var(--brand-600); flex: none; margin-top: 2px; }
+  .gso__bonus .gso__item { font-weight: 600; color: var(--ink); }
+  .gso__val { font-size: .88rem; color: var(--muted); font-weight: 700; white-space: nowrap; text-align: right; }
+  .gso__total { font-weight: 900; color: var(--ink); font-size: 1.05rem; }
+  .gso__total span:last-child { color: var(--brand-700); }
+  .gso__price { background: linear-gradient(160deg, var(--graphite-900), #0b1220); color: #fff; border-radius: var(--radius); padding: 28px; text-align: center; position: sticky; top: 96px; }
+  .gso__plbl { font-size: .8rem; color: #94a3b8; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+  .gso__pamt { font-size: 3rem; font-weight: 900; letter-spacing: -.03em; line-height: 1; margin: 6px 0 2px; }
+  .gso__pamt span { font-size: 1.1rem; color: #94a3b8; font-weight: 700; }
+  .gso__pnote { color: #cbd5e1; font-size: .9rem; margin: 0 0 16px; }
+  .gso__guarantee { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: .88rem; color: #fff; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); border-radius: 999px; padding: 8px 15px; margin-bottom: 10px; }
+  .gso__guarantee :global(.ico) { color: var(--brand-500); }
+  .gso__scarcity { display: flex; align-items: center; justify-content: center; gap: 7px; font-weight: 700; font-size: .88rem; color: #fff; margin-bottom: 16px; }
+  .gso__scarcity :global(.ico) { color: #fff; }
+  @media (max-width: 820px) { .gso { grid-template-columns: 1fr; } .gso__price { position: static; } }
 
   /* ROI calculator */
   .roi { display: grid; grid-template-columns: 1.1fr 1fr; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }

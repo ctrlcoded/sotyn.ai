@@ -122,6 +122,25 @@ export const SITE = {
         { team: "100+ employees", fee: "25,000" },
       ],
     },
+    // Grand-slam offer value stack (illustrative values — adjust freely).
+    offer: {
+      seatsTotal: 100,
+      seatsLeft: 17, // ⚠️ update as founding seats fill
+      stack: [
+        { item: "The full sotyn.ai ERP — every module, unlimited users", value: "₹3–10 L / yr value" },
+        { item: "AI Auto-Quotation engine", value: "₹1,00,000 / yr" },
+        { item: "Done-for-you Tally + Excel migration & master setup", value: "₹50,000" },
+        { item: "Team training until you're fully live", value: "₹40,000" },
+        { item: "Secure workspace hosted in India + daily backups", value: "₹30,000 / yr" },
+      ],
+      bonuses: [
+        { item: "Bonus — Free 1-on-1 Profit Leak Audit on your own numbers", value: "₹25,000" },
+        { item: "Bonus — Priority onboarding: live in 2 weeks, not months", value: "₹30,000" },
+        { item: "Bonus — The 11-Point Profit Leak Checklist (from the book)", value: "₹2,000" },
+        { item: "Bonus — Founding price locked for life", value: "saves lakhs over time" },
+      ],
+      totalValue: "₹6,00,000+",
+    },
     // Drives the ROI / leakage calculator.
     roi: {
       defaultTurnover: 25, // ₹ Cr
