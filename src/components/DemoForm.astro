@@ -18,14 +18,14 @@ import { SITE } from "../config/site";
       <input type="text" name="city" placeholder="e.g. Ludhiana" />
     </label>
   </div>
-  <label>What kind of contractor are you?
+  <label>What kind of EPC work do you do?
     <select name="trade">
-      <option value="">Select your trade…</option>
-      <option>MEPF / HVAC / Electrical / Plumbing / Fire</option>
+      <option value="">Select…</option>
+      <option>MEP / HVAC / Electrical / Plumbing / Fire EPC</option>
       <option>Solar EPC</option>
-      <option>Civil / General contractor</option>
-      <option>Interior / Fit-out</option>
-      <option>Infrastructure / Other</option>
+      <option>Civil / Infrastructure EPC</option>
+      <option>Industrial / Process EPC</option>
+      <option>Turnkey / Multi-discipline EPC</option>
     </select>
   </label>
   <label>Team size
@@ -107,7 +107,7 @@ import { SITE } from "../config/site";
 
     // 2) Fallback so NO lead is ever lost → open a pre-filled WhatsApp chat.
     const msg =
-      `New SotynERP demo request%0A` +
+      `New sotyn.ai demo request%0A` +
       `Name: ${data.name}%0ACompany: ${data.company}%0APhone: ${data.phone}` +
       `%0ACity: ${data.city || "-"}%0ATrade: ${data.trade || "-"}%0ATeam: ${data.team || "-"}`;
     status.dataset.state = "ok";

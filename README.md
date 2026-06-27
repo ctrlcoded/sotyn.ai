@@ -1,6 +1,6 @@
-# SotynERP — Marketing Website
+# sotyn.ai — Marketing Website
 
-Lead-generation marketing site for **SotynERP**, the all-in-one ERP for MEPF, solar,
+Lead-generation marketing site for **sotyn.ai**, the all-in-one ERP for MEPF, solar,
 civil & EPC contractors across India — built and run by Secured Engineers Pvt. Ltd.
 
 Built with **Astro** (static, fast, SEO-friendly). Same proven stack as the Secured

@@ -10,12 +10,12 @@
 
 export const SITE = {
   // ── Brand ────────────────────────────────────────────────────────────────
-  name: "SotynERP",
-  legalName: "SotynERP",
-  brandShort: "SotynERP",
-  tagline: "The ERP built by contractors, for contractors",
+  name: "sotyn.ai",
+  legalName: "sotyn.ai",
+  brandShort: "sotyn.ai",
+  tagline: "The AI-powered ERP built only for EPC contractors",
   promise:
-    "See exactly where your money is leaking — from quote to site to collection — and plug it.",
+    "AI that shows you exactly where your money is leaking — from quote to site to collection — and helps you plug it.",
   parentCompany: "Secured Engineers Pvt. Ltd.",
 
   // ── Domain / URL ─────────────────────────────────────────────────────────
@@ -57,7 +57,7 @@ export const SITE = {
   pricing: {
     currency: "₹",
     anchor:
-      "Comparable construction ERPs cost ₹3–10 lakh a year. SotynERP is a fraction of that — because we built it to run our own business, not to milk customers.",
+      "Comparable construction ERPs cost ₹3–10 lakh a year. sotyn.ai is a fraction of that — because we built it to run our own business, not to milk customers.",
     guarantee: "30-day money-back guarantee",
     guaranteeNote:
       "Use it for 30 days. If it doesn't show you where you're leaking money, we refund every rupee — no questions asked.",
@@ -65,7 +65,7 @@ export const SITE = {
       {
         name: "Founding Member",
         badge: "Limited · price locked for life",
-        blurb: "The lowest price SotynERP will ever offer.",
+        blurb: "The lowest price sotyn.ai will ever offer.",
         price: "10,000",
         per: "/mo",
         billed: "billed annually · ₹1,20,000/yr",
@@ -123,18 +123,18 @@ export const SITE = {
   // date/time and (optionally) the live link.
   webinar: {
     kicker: "Free live masterclass for contractors",
-    title: "The Contractor's Profit Masterclass",
+    title: "The EPC Contractor's Profit Masterclass",
     subtitle:
-      "How to stop losing money on every project — and build a contracting business that runs without you.",
+      "How to stop losing money on every project — and build an EPC business that runs without you.",
     host: "Er. Ankur Kaplesh",
     hostTitle:
-      "Business Coach & Founder, SotynERP · 14 yrs · 535+ projects · Author of 2 books",
+      "Business Coach & Founder, sotyn.ai · 14 yrs · 535+ projects · Author of 2 books",
     when: "Every Saturday · 7:00 PM IST", // ⚠️ set your real schedule
     duration: "60 minutes + live Q&A",
     platform: "Live on Zoom · 100% free",
     seats: "Only 100 seats per session",
     forWho:
-      "Contracting & EPC business owners (₹2–100 Cr) — MEPF, solar, civil & interiors.",
+      "EPC contractors & firms (₹2–100 Cr) — MEP, solar, civil, industrial & turnkey EPC.",
     learn: [
       "The 6 places every contractor silently leaks money — and how to plug each one",
       "The 4 numbers you must see every week to protect your margin",
@@ -162,7 +162,7 @@ export const SITE = {
 // Convenience helpers ────────────────────────────────────────────────────────
 export const waLink = (msg = "") =>
   `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(
-    msg || `Hi SotynERP, I run a contracting business and I'd like a demo.`
+    msg || `Hi sotyn.ai, I run a contracting business and I'd like a demo.`
   )}`;
 
 export const telLink = `tel:${SITE.phoneHref}`;

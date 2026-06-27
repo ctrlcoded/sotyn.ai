@@ -7,7 +7,7 @@ const { currency, anchor, guarantee, guaranteeNote, plans, includes, roi } = SIT
 
 const faqs = [
   { q: "Why is it so much cheaper than other construction ERPs?", a: "Because we didn't build it to sell — we built it to run our own EPC business, and it already pays for itself there. Offering it to other contractors is a bonus, so we price it to be a no-brainer, not to maximise our margin." },
-  { q: "What's the 30-day money-back guarantee?", a: "Use SotynERP for 30 days. If it doesn't show you where you're leaking money, email us and we refund every rupee — no questions, no forms. The risk is ours, not yours." },
+  { q: "What's the 30-day money-back guarantee?", a: "Use sotyn.ai for 30 days. If it doesn't show you where you're leaking money, email us and we refund every rupee — no questions, no forms. The risk is ours, not yours." },
   { q: "Is everything really included?", a: "Yes. Every module, unlimited office and site users, free setup, Tally + Excel migration and team training. No per-seat fees, no surprise add-ons. The only higher tier is Enterprise, for ₹50 Cr+ groups that need multi-company and API." },
   { q: "What does 'Founding Member, price locked for life' mean?", a: "The first 100 contractors who join lock today's price forever — it never goes up, even as we add features and raise list prices. It's our thank-you for backing us early." },
   { q: "Is there any lock-in?", a: "No. Pay monthly and cancel anytime, or pay annually to get the lower rate. We earn the renewal by closing your leaks — if it isn't paying for itself, you shouldn't stay." },
@@ -20,8 +20,8 @@ const faqSchema = [{
 }];
 ---
 <BaseLayout
-  title="Pricing — everything included, from ₹10,000/mo | SotynERP"
-  description="Simple, honest SotynERP pricing for Indian contractors. Every module, unlimited users, free setup — from ₹10,000/month, with a 30-day money-back guarantee. See your payback with the leak calculator. Book a free demo."
+  title="Pricing — everything included, from ₹10,000/mo | sotyn.ai"
+  description="Simple, honest sotyn.ai pricing for Indian contractors. Every module, unlimited users, free setup — from ₹10,000/month, with a 30-day money-back guarantee. See your payback with the leak calculator. Book a free demo."
   path="/pricing"
   schema={faqSchema}
 >
@@ -98,7 +98,7 @@ const faqSchema = [{
         <div class="roi__controls">
           <span class="eyebrow">Leak calculator</span>
           <h2>Do the maths on your own numbers.</h2>
-          <p class="muted">Even recovering a tiny slice of your leakage pays for SotynERP many times over.</p>
+          <p class="muted">Even recovering a tiny slice of your leakage pays for sotyn.ai many times over.</p>
           <div class="roi__field">
             <label for="roiTurn">Your annual turnover <output id="roiTo">₹25 Cr</output></label>
             <input type="range" id="roiTurn" min="2" max="100" step="1" value="25" />
@@ -114,7 +114,7 @@ const faqSchema = [{
           <span class="roi__lbl">You could recover, every year</span>
           <strong class="roi__big" id="roiRecover">₹62.5 L</strong>
           <div class="roi__grid">
-            <div><span class="roi__lbl">SotynERP costs</span><b id="roiCost">₹1.2 L/yr</b></div>
+            <div><span class="roi__lbl">sotyn.ai costs</span><b id="roiCost">₹1.2 L/yr</b></div>
             <div><span class="roi__lbl">It pays for itself in</span><b id="roiDays">≈ 7 days</b></div>
           </div>
           <a href="/webinar" class="btn btn--primary btn--lg" style="width:100%">Join the free masterclass</a>

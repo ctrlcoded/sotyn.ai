@@ -1,8 +1,8 @@
-# SotynERP — welcome search engines and AI crawlers
+# sotyn.ai — welcome search engines and AI crawlers
 User-agent: *
 Allow: /
 
-# AI answer engines (so SotynERP shows up in AI search)
+# AI answer engines (so sotyn.ai shows up in AI search)
 User-agent: GPTBot
 Allow: /
 User-agent: ClaudeBot
