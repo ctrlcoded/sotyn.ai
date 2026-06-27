@@ -66,9 +66,9 @@ export const SITE = {
         name: "Founding Member",
         badge: "Limited · price locked for life",
         blurb: "The lowest price SotynERP will ever offer.",
-        price: "4,999",
+        price: "10,000",
         per: "/mo",
-        billed: "billed annually · ₹59,988/yr",
+        billed: "billed annually · ₹1,20,000/yr",
         strike: "",
         note: "First 100 contractors only · rate locked forever",
         highlight: true,
@@ -78,11 +78,11 @@ export const SITE = {
       {
         name: "Standard",
         blurb: "Everything included, no limits.",
-        price: "6,999",
+        price: "14,999",
         per: "/mo",
-        billed: "billed annually · ₹83,988/yr",
-        strike: "9,999",
-        note: "Or ₹9,999/mo billed monthly",
+        billed: "billed annually · ₹1,79,988/yr",
+        strike: "19,999",
+        note: "Or ₹19,999/mo billed monthly",
         highlight: false,
         cta: "Book a demo",
         features: ["Everything in the list below", "Annual or monthly billing", "Standard onboarding"],
@@ -114,7 +114,7 @@ export const SITE = {
     roi: {
       defaultTurnover: 25, // ₹ Cr
       defaultLeakPct: 2.5,
-      annualCost: 59988, // founding annual price, used for payback math
+      annualCost: 120000, // founding annual price, used for payback math
     },
   },
 
