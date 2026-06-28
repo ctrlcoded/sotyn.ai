@@ -30,6 +30,10 @@ const ba = [
   { f: "before-after-1", c: "Before vs after — square" },
   { f: "before-after-2", c: "The transformation — numbers" },
 ];
+const canva = [
+  { f: "canva-less-stress-profit", c: "Less stress. More profit. (with contractor photo)" },
+  { f: "canva-founding-offer", c: "Founding offer — ₹10,000/mo, locked for life" },
+];
 ---
 <BaseLayout
   title="Social media kit — sotyn.ai"
@@ -83,6 +87,21 @@ const ba = [
             <img src={`/images/${b.f}.png`} alt={b.c} loading="lazy" />
             <figcaption>{b.c}</figcaption>
             <a class="btn btn--ghost" href={`/images/${b.f}.png`} download>Download</a>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2 style="margin-bottom:22px">Made in Canva (2)</h2>
+      <div class="kit">
+        {canva.map((c) => (
+          <figure class="kit__item">
+            <img src={`/images/canva/${c.f}.png`} alt={c.c} loading="lazy" />
+            <figcaption>{c.c}</figcaption>
+            <a class="btn btn--ghost" href={`/images/canva/${c.f}.png`} download>Download</a>
           </figure>
         ))}
       </div>
