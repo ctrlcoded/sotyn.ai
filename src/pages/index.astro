@@ -277,6 +277,22 @@ const faqSchema = [{
   </section>
 
   <!-- ── PUBLISHED AUTHOR / BOOKS (credibility) ───────────────────────── -->
+  <!-- ── FOUNDER STRIP (consultant) ───────────────────────────────────── -->
+  <section class="section section--alt">
+    <div class="container fstrip">
+      <img class="fstrip__photo" src="/images/founder-ankur-kaplesh.jpg" alt="Er. Ankur Kaplesh — AI ERP Implementation Consultant" width="638" height="720" loading="lazy" />
+      <div class="fstrip__copy">
+        <span class="eyebrow">Your AI ERP Implementation Consultant</span>
+        <h2>Not a software vendor — a contractor who'll implement it himself.</h2>
+        <p class="lead">Er. Ankur Kaplesh ran 535+ projects across 18 states, then built the AI ERP that plugged his own profit leaks. Now he personally helps EPC contractors install the same system — 14+ years on site, 2 books, one mission: stop the bleeding.</p>
+        <div class="btn-row">
+          <a href="/#demo" class="btn btn--primary">Book a call with Ankur</a>
+          <a href="/about" class="btn btn--ghost">Read his story</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="books">
     <div class="container">
       <div class="sec-head text-center">
@@ -745,6 +761,13 @@ const faqSchema = [{
   .ltool h3 { margin-bottom: 8px; }
   .ltool p { font-size: .96rem; margin-bottom: 14px; }
   .ltool__cta { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; color: var(--brand-700); font-size: .95rem; }
+
+  /* Founder strip (consultant) */
+  .fstrip { display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: center; max-width: 980px; margin-inline: auto; }
+  .fstrip__photo { width: 180px; height: 216px; object-fit: cover; object-position: top center; border-radius: 18px; box-shadow: var(--shadow-lg); flex: none; }
+  .fstrip__copy h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin: 10px 0 12px; }
+  .fstrip__copy .lead { margin-bottom: 18px; }
+  @media (max-width: 760px) { .fstrip { grid-template-columns: 1fr; text-align: center; justify-items: center; } }
 
   /* Author chip */
   .author { display: inline-flex; align-items: center; gap: 12px; margin-top: 24px; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 8px 20px 8px 8px; box-shadow: var(--shadow-sm); }
