@@ -40,6 +40,9 @@ const canva = [
   { f: "canva-leak-hook", c: "“You could be leaking ₹62 lakh a year”" },
   { f: "canva-built-by-contractors", c: "Built by contractors, not coders" },
 ];
+const consultant = [
+  { f: "consultant-card", c: "Consultant intro — Er. Ankur Kaplesh (real photo)" },
+];
 ---
 <BaseLayout
   title="Social media kit — sotyn.ai"
@@ -108,6 +111,21 @@ const canva = [
             <img src={`/images/canva/${c.f}.png`} alt={c.c} loading="lazy" />
             <figcaption>{c.c}</figcaption>
             <a class="btn btn--ghost" href={`/images/canva/${c.f}.png`} download>Download</a>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 style="margin-bottom:22px">Founder / consultant card (1)</h2>
+      <div class="kit">
+        {consultant.map((c) => (
+          <figure class="kit__item">
+            <img src={`/images/${c.f}.png`} alt={c.c} loading="lazy" />
+            <figcaption>{c.c}</figcaption>
+            <a class="btn btn--ghost" href={`/images/${c.f}.png`} download>Download</a>
           </figure>
         ))}
       </div>
