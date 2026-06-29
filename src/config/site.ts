@@ -213,7 +213,7 @@ export const SITE = {
       "How to stop losing money on every project — and build an EPC business that runs without you.",
     host: "Er. Ankur Kaplesh",
     hostTitle:
-      "Business Coach & Founder, sotyn.ai · 14 yrs · 535+ projects · Author of 2 books",
+      "AI ERP Implementation Consultant & Founder, sotyn.ai · 14 yrs · 535+ projects · Author of 2 books",
     when: "Every Saturday · 7:00 PM IST", // ⚠️ set your real schedule
     duration: "60 minutes + live Q&A",
     platform: "Live on Zoom · 100% free",
