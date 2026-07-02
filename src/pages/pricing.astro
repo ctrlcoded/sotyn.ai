@@ -21,8 +21,8 @@ const faqSchema = [{
 }];
 ---
 <BaseLayout
-  title="Pricing — everything included, from ₹10,000/mo | sotyn.ai"
-  description="Simple, honest sotyn.ai pricing for EPC contractors. Every module, unlimited users — from ₹10,000/month, plus a one-time setup fee (₹1,000–₹25,000 by team size) and a 30-day money-back guarantee. Book a free demo."
+  title="Pricing — from ₹6,000/mo, unlimited site users | sotyn.ai"
+  description="Simple per-company sotyn.ai pricing for EPC contractors: Starter ₹72,000/yr, Growth ₹1,50,000/yr, Enterprise custom — unlimited site users, all 14 module groups, and a 30-day money-back guarantee. Launch offer: the first 25 contractors get 40% off year 1. Book a free demo."
   path="/pricing"
   schema={faqSchema}
 >
@@ -31,9 +31,9 @@ const faqSchema = [{
       <span class="eyebrow">Pricing</span>
       <h1>Priced so the only reason to say no is if you like losing money.</h1>
       <p class="lead" style="margin-inline:auto">
-        One simple subscription. Every module, unlimited users, and a
-        <strong>30-day money-back guarantee</strong>, so the risk is ours. Plus a small
-        one-time setup fee — from just ₹1,000.
+        One price per company — <strong>unlimited site users</strong>, all 14 module groups, and a
+        <strong>30-day money-back guarantee</strong>. Launch offer: the first 25 contractors get
+        <strong>40% off year 1</strong>.
       </p>
     </div>
   </section>
@@ -67,13 +67,13 @@ const faqSchema = [{
           <li class="gso__total"><span>Total value</span><span>{offer.totalValue}</span></li>
         </ul>
         <aside class="gso__price">
-          <span class="gso__plbl">Your founding price</span>
-          <div class="gso__pamt">{currency}10,000<span>/mo</span></div>
-          <p class="gso__pnote">+ one-time setup from ₹1,000</p>
+          <span class="gso__plbl">Launch offer</span>
+          <div class="gso__pamt">40%<span> off yr 1</span></div>
+          <p class="gso__pnote">from {currency}6,000/mo · + onboarding from ₹25,000</p>
           <div class="gso__guarantee"><Icon name="shield" size={18} /> {guarantee}</div>
           <div style="margin:18px 0"><Countdown variant="dark" /></div>
-          <div class="gso__scarcity"><Icon name="alert" size={16} /> Only {offer.seatsLeft} of {offer.seatsTotal} founding seats left</div>
-          <a href="/webinar" class="btn btn--primary btn--lg" style="width:100%">Claim a founding seat</a>
+          <div class="gso__scarcity"><Icon name="alert" size={16} /> Only {offer.seatsLeft} of {offer.seatsTotal} launch seats left</div>
+          <a href="/webinar" class="btn btn--primary btn--lg" style="width:100%">Claim your launch seat</a>
           <a href="/scorecard" class="btn btn--ghost" style="width:100%;margin-top:10px">Get your free leak score first</a>
         </aside>
       </div>
@@ -130,7 +130,7 @@ const faqSchema = [{
     <div class="container">
       <div class="sec-head text-center">
         <span class="eyebrow">One-time setup</span>
-        <h2>Go live for a one-time fee — from ₹1,000</h2>
+        <h2>Go live for a one-time onboarding fee — from ₹25,000</h2>
         <p class="lead" style="margin-inline:auto">{setup.note}</p>
       </div>
       <div class="setup">
@@ -169,8 +169,8 @@ const faqSchema = [{
           <span class="roi__lbl">You could recover, every year</span>
           <strong class="roi__big" id="roiRecover">₹62.5 L</strong>
           <div class="roi__grid">
-            <div><span class="roi__lbl">sotyn.ai costs</span><b id="roiCost">₹1.2 L/yr</b></div>
-            <div><span class="roi__lbl">It pays for itself in</span><b id="roiDays">≈ 7 days</b></div>
+            <div><span class="roi__lbl">sotyn.ai costs</span><b id="roiCost">₹1.5 L/yr</b></div>
+            <div><span class="roi__lbl">It pays for itself in</span><b id="roiDays">≈ 9 days</b></div>
           </div>
           <a href="/webinar" class="btn btn--primary btn--lg" style="width:100%">Join the free masterclass</a>
           <p class="roi__note">Illustrative — construction leakage is typically far higher. We use a conservative figure on purpose.</p>
